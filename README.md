@@ -1,24 +1,60 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+| Column | Type | Option |
+|--------|------|--------|
+| nickname | string | null:false |
+| email | string | null:false |
+| password | string | null:false |
+| familyname | string | null:false |
+| firstname | string | null:false |
+| familyname_reader | string | null:false |
+| firstname_reader | string | null:false |
+| birthday | date | null:false |
 
-Things you may want to cover:
+### Association
+- has_many :items
+- has_many :purchases
 
-* Ruby version
+## items テーブル
+| Column | Type | Option |
+|--------|------|--------|
+| name | string | null:false |
+| text | text | null:false |
+| category | integer | null:false |
+| status | integer | null:false |
+| fee | integer | null:false |
+| from | integer | null:false |
+| days | integer | null:false |
+| price | integer | null:false |
+| user | references | null:false, foreign_key:true |
 
-* System dependencies
+### Association
+- belongs_to :user
+- has_one :purchase
 
-* Configuration
+## purcaseテーブル
+| Column | Type | Option |
+|--------|------|--------|
+| user | references | null:false, foreign_key:true |
+| item | references | null:false, foreign_key:true |
 
-* Database creation
+### Association
+- belongs_to :user
+- belongs_to :item
+- has_one :customer
 
-* Database initialization
 
-* How to run the test suite
+## customersテーブル
+| Column | Type | Option |
+|--------|------|--------|
+| postal_cord | string | null:false |
+| state | integer | null:false |
+| city | string | null:false |
+| address | string | null:false |
+| building | string |   |
+| phone_number | string | null:false |
+| purchase | references | null:false, foreign_key:true |
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+- belongs_to :purchase

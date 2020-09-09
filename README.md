@@ -10,9 +10,7 @@
 | firstname | string | null:false |
 | familyname_reader | string | null:false |
 | firstname_reader | string | null:false |
-| birthyear | integer | null:false |
-| birthmonth | integer | null:false |
-| birthday | integer | nul:false |
+| birthday | date | null:false |
 
 ### Association
 - has_many :items

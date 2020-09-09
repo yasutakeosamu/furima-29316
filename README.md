@@ -29,7 +29,7 @@
 | from | integer | null:false |
 | days | integer | null:false |
 | price | integer | null:false |
-| user_id | references | null:false, foreign_key:true |
+| user | references | null:false, foreign_key:true |
 
 ### Association
 - belongs_to :user
@@ -38,8 +38,8 @@
 ## purcaseテーブル
 | Column | Type | Option |
 |--------|------|--------|
-| user_id | references | null:false, foreign_key:true |
-| item_id | references | null:false, foreign_key:true |
+| user | references | null:false, foreign_key:true |
+| item | references | null:false, foreign_key:true |
 
 ### Association
 - belongs_to :user
@@ -56,7 +56,7 @@
 | address | string | null:false |
 | building | string |   |
 | phone_number | string | null:false |
-| purchase_id | references | null:false, foreign_key:true |
+| purchase | references | null:false, foreign_key:true |
 
 ### Association
 - belongs_to :purchase

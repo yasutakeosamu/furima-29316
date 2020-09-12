@@ -9,4 +9,6 @@ class User < ApplicationRecord
   validates :familyname, :firstname, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/ }
   validates :familyname_reader, :firstname_reader, presence: true, format: { with: /\A[ァ-ン]+\z/ }
   validates :birthday, presence: true
+
+  has_many :items
 end

@@ -21,11 +21,11 @@
 |--------|------|--------|
 | name | string | null:false |
 | text | text | null:false |
-| category | integer | null:false |
-| status | integer | null:false |
-| fee | integer | null:false |
-| from | integer | null:false |
-| days | integer | null:false |
+| category_id | integer | null:false |
+| status_id | integer | null:false |
+| fee_id | integer | null:false |
+| from_id | integer | null:false |
+| day_id | integer | null:false |
 | price | integer | null:false |
 | user | references | null:false, foreign_key:true |
 
@@ -33,7 +33,7 @@
 - belongs_to :user
 - has_one :purchase
 
-## purcaseテーブル
+## purchaseテーブル
 | Column | Type | Option |
 |--------|------|--------|
 | user | references | null:false, foreign_key:true |

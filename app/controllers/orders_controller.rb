@@ -1,13 +1,12 @@
 class OrdersController < ApplicationController
+  before_action :item_find
   def index
-    @item = Item.find(params[:item_id])
     redirect_to root_path unless @item.purchase.nil?
     @purchase = PurchaseCustomer.new
     redirect_to root_path unless user_signed_in? && @item.user_id != current_user.id
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @purchase = PurchaseCustomer.new(purchase_params)
     if @purchase.valid?
       pay_item
@@ -31,5 +30,9 @@ class OrdersController < ApplicationController
       card: purchase_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def item_find
+    @item = Item.find(params[:item_id])
   end
 end

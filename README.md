@@ -15,6 +15,17 @@
 ### Association
 - has_many :items
 - has_many :purchases
+- has_one :card, dependent: :destroy
+
+## cardsテーブル
+| Column | Type | Option |
+| -------|------|--------|
+| card_token | string | null:false |
+| customer_token | string | null:false |
+| user | references | null:false, foreign_key:true |
+
+### Association
+- belongs_to :user
 
 ## items テーブル
 | Column | Type | Option |

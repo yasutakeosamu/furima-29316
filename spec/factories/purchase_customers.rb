@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :purchase_customer do
-    token { Faker::Lorem.characters }
     postal_code { Faker::Address.postcode }
     state { Faker::Number.between(from: 2, to: 48) }
     city { Faker::Address.city }

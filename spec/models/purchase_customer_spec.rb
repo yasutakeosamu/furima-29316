@@ -5,13 +5,8 @@ RSpec.describe PurchaseCustomer, type: :model do
     before do
       @purchase_customer = FactoryBot.build(:purchase_customer)
     end
-    it 'カード情報と住所情報があれば登録できる' do
+    it '住所情報があれば登録できる' do
       expect(@purchase_customer).to be_valid
-    end
-    it 'カード情報のトークンが空では登録できない' do
-      @purchase_customer.token = ''
-      @purchase_customer.valid?
-      expect(@purchase_customer.errors.full_messages).to include('Token translation missing: ja.activemodel.errors.models.purchase_customer.attributes.token.blank')
     end
     it 'postal_codeが空では登録できない' do
       @purchase_customer.postal_code = ''

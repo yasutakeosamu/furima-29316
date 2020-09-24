@@ -1,0 +1,50 @@
+<%= render "shared/header"%>
+
+<div class='item-show'>
+  <div class='item-box'>
+    <h1 class='name'>会員情報</h1>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">ニックネーム</th>
+          <td class="detail-value"><%= @user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">メールアドレス</th>
+          <td class="detail-value"><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">お名前</th>
+          <td class="detail-value"><%= @user.familyname %><%= @user.firstname %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">お名前カナ</th>
+          <td class="detail-value"><%= @user.familyname_reader %><%= @user.firstname_reader %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">生年月日</th>
+          <td class="detail-value"><%= @user.birthday %></td>
+        </tr>
+      </tbody>
+    </table>
+    <% if @card.nil? %>
+      <%= link_to 'クレジットカードを登録', new_card_path, method: :get, class: "item-red-btn" %>
+    <% else %>
+        <h1 class='name'>カード情報</h1>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">カード番号</th>
+          <td class="detail-value">**** **** **** <%= @card.last4 %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">有効期限</th>
+          <td class="detail-value"><%= @card.exp_year%>年<%= @card.exp_month%>月</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <% end %>
+  </div>
+</div>
+<%= render "shared/footer"%>

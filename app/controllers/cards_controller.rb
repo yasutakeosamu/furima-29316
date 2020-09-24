@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
   def new
+    redirect_to root_path unless current_user.card.nil?
     @card = Card.new
   end
 

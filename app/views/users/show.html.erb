@@ -1,0 +1,32 @@
+<%= render "shared/header"%>
+
+<div class='item-show'>
+  <div class='item-box'>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">ニックネーム</th>
+          <td class="detail-value"><%= @user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">メールアドレス</th>
+          <td class="detail-value"><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">お名前</th>
+          <td class="detail-value"><%= @user.familyname %><%= @user.firstname %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">お名前カナ</th>
+          <td class="detail-value"><%= @user.familyname_reader %><%= @user.firstname_reader %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">生年月日</th>
+          <td class="detail-value"><%= @user.birthday %></td>
+        </tr>
+      </tbody>
+    </table>
+    <%= link_to 'クレジットカードを登録', '#', method: :get, class: "item-red-btn" %>
+  </div>
+</div>
+<%= render "shared/footer"%>
